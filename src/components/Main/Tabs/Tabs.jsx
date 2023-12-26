@@ -11,6 +11,7 @@ import {ReactComponent as HomeIcon} from './img/home.svg';
 import {ReactComponent as TopIcon} from './img/top.svg';
 import {ReactComponent as BestIcon} from './img/best.svg';
 import {ReactComponent as Hot} from './img/hot.svg';
+import {Text} from '../../../UI/Text/Text';
 
 const LIST = [
   {value: 'Главная', Icon: HomeIcon},
@@ -65,12 +66,13 @@ export const Tabs = () => {
         <ul className={style.list} onClick={() => setIsDropdownOpen(false)}>
           {LIST.map(({value, id, Icon}) => (
             <li className={style.item} key={id}>
-              <button
+              <Text
+                As={'button'}
                 className={style.btn}
                 onClick={() => handleItemClick({value, id, Icon})}>
                 {value}
                 {Icon && <Icon width={30} height={30}/>}
-              </button>
+              </Text>
             </li>
           ))}
         </ul>

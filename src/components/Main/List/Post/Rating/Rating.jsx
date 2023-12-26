@@ -1,11 +1,17 @@
 import PropTypes from 'prop-types';
 
 import style from './Rating.module.css';
+import {Text} from '../../../../../UI/Text/Text';
 
 export const Rating = ({ups}) => (
   <div className={style.rating}>
     <button className={style.up} aria-label='Увеличить рейтинг'/>
-    <p className={style.ups}>{ups}</p>
+    <Text
+      As={'p'}
+      size={12}
+      tsize={66}
+      bold
+      className={style.ups}>{ups}</Text>
     <button className={style.down} aria-label='Уменьшить рейтинг'/>
   </div>
 );
