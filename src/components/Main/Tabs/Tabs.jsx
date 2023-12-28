@@ -67,11 +67,12 @@ export const Tabs = () => {
           {LIST.map(({value, id, Icon}) => (
             <li className={style.item} key={id}>
               <Text
-                As={'button'}
+                As='button'
                 className={style.btn}
-                onClick={() => handleItemClick({value, id, Icon})}>
+                onClick={() => handleItemClick({value, id, Icon})}
+              >
                 {value}
-                {Icon && <Icon width={30} height={30}/>}
+                {Icon && <Icon width={30} height={30} />}
               </Text>
             </li>
           ))}
