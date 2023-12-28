@@ -5,12 +5,14 @@ import style from './Auth.module.css';
 import {ReactComponent as AuthIcon} from './img/auth.svg';
 import {urlAuth} from '../../../api/auth';
 import {Text} from '../../../UI/Text/Text';
-import {useState} from 'react';
-import {useAuth} from '../../../hooks/useAuth';
+import {useState, useContext} from 'react';
+import {tokenContext} from '../../../context/tokenContext';
+import {authContext} from '../../../context/authContext';
 
-export const Auth = ({token, delToken}) => {
-  const [auth, clearAuth] = useAuth(token);
+export const Auth = () => {
+  const {delToken} = useContext(tokenContext);
   const [isLogout, setIsLogout] = useState(false);
+  const {auth, clearAuth} = useContext(authContext);
 
   const handleAvatarClick = () => {
     setIsLogout(!isLogout);
