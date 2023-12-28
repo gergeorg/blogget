@@ -5,41 +5,21 @@ import style from './Auth.module.css';
 import {ReactComponent as AuthIcon} from './img/auth.svg';
 import {urlAuth} from '../../../api/auth';
 import {Text} from '../../../UI/Text/Text';
-import {useEffect, useState} from 'react';
-import {URL_API} from '../../../api/const';
+import {useState} from 'react';
+import {useAuth} from '../../../hooks/useAuth';
 
 export const Auth = ({token, delToken}) => {
-  const [auth, setAuth] = useState({});
+  const [auth, clearAuth] = useAuth(token);
   const [isLogout, setIsLogout] = useState(false);
 
   const handleAvatarClick = () => {
     setIsLogout(!isLogout);
   };
 
-  useEffect(() => {
-    if (!token) return;
-
-    fetch(`${URL_API}/api/v1/me`, {
-      headers: {
-        Authorization: `bearer ${token}`
-      }
-    })
-      .then(response => {
-        if (response.status === 401) {
-          delToken();
-          throw new Error('Unauthorized');
-        }
-        return response.json();
-      })
-      .then(({name, icon_img: iconImg}) => {
-        const img = iconImg.replace(/\?.*$/, '');
-        setAuth({name, img});
-      })
-      .catch((error) => {
-        console.error(error);
-        setAuth({});
-      });
-  }, [token]);
+  const logOut = () => {
+    delToken();
+    clearAuth();
+  };
 
   return (
     <div className={style.container}>
@@ -54,7 +34,7 @@ export const Auth = ({token, delToken}) => {
           </button>
 
           {isLogout &&
-            <button className={style.logout} onClick={delToken}>Выйти</button>
+            <button className={style.logout} onClick={logOut}>Выйти</button>
           }
         </>
       ) : (
