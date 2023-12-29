@@ -29,9 +29,7 @@ export const Text = (prop) => {
     {[style.bold]: bold},
   );
 
-  return (
-    <As className={classes} href={href}>{children}</As>
-  );
+  return <As className={classes} href={href}>{children}</As>;
 };
 
 Text.propTypes = {

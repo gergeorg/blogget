@@ -23,7 +23,7 @@ export const List = () => {
           title={post.data.title}
           author={post.data.author}
           ups={post.data.ups}
-          date={post.data.created_utc}
+          date={post.data.created}
         />
       )}
     </ul>

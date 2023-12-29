@@ -5,8 +5,8 @@
 //тут когда-то будет ссылка//
 
 ### Used:
--[API Reddit](https://www.reddit.com/dev/api/)
--[OAuth 2.0 Reddit](https://github.com/reddit-archive/reddit/wiki/OAuth2)
+- [API Reddit](https://www.reddit.com/dev/api/)
+- [OAuth 2.0 Reddit](https://github.com/reddit-archive/reddit/wiki/OAuth2)
 
 ### `npm run start`
 
