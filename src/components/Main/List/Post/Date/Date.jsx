@@ -10,5 +10,5 @@ export const Date = ({date}) => <time className={style.date} dateTime={date}>
 
 
 Date.propTypes = {
-  date: PropTypes.string,
+  date: PropTypes.number,
 };

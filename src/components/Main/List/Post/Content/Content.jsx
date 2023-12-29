@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import style from './Content.module.css';
 import {Text} from '../../../../../UI/Text/Text';
 
-export const Content = ({title, author}) =>
-
+export const Content = ({title, author}) => (
   <div className={style.content}>
     <Text As='h2' className={style.title}>
       <Text
@@ -29,7 +28,8 @@ export const Content = ({title, author}) =>
     >
       {author}
     </Text>
-  </div>;
+  </div>
+);
 
 
 Content.propTypes = {
