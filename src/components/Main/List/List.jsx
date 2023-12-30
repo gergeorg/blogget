@@ -19,6 +19,7 @@ export const List = () => {
       {posts.map(post =>
         <Post
           key={post.data.id}
+          id={post.data.id}
           thumbnail={post.data.thumbnail}
           title={post.data.title}
           author={post.data.author}
