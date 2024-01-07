@@ -15,7 +15,7 @@ export const Content = ({id, title, author}) => {
           // As='a'
           className={style.linkPost}
           href='#post'
-          size={18}
+          // size={18}
           // tsize={24}
           // bold
           onClick={() => {

@@ -1,25 +1,29 @@
 import PropTypes from 'prop-types';
+import {useState, useContext} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
 import style from './Auth.module.css';
 
 import {ReactComponent as AuthIcon} from './img/auth.svg';
+
 import {urlAuth} from '../../../api/auth';
 import {Text} from '../../../UI/Text/Text';
-import {useState, useContext} from 'react';
-import {tokenContext} from '../../../context/tokenContext';
 import {authContext} from '../../../context/authContext';
+import {deleteToken} from '../../../store';
 
 export const Auth = () => {
-  const {delToken} = useContext(tokenContext);
   const [isLogout, setIsLogout] = useState(false);
   const {auth, clearAuth} = useContext(authContext);
+
+  const dispatch = useDispatch();
+  const token = useSelector(state => state.token);
 
   const handleAvatarClick = () => {
     setIsLogout(!isLogout);
   };
 
   const logOut = () => {
-    delToken();
+    dispatch(deleteToken(token));
     clearAuth();
   };
 
